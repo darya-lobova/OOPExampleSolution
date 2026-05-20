@@ -2,13 +2,17 @@
 
 int main() {
 	Student alex(123, "Alex", 15, 9, 'A', 10, true);
-	Student polina(124, "Polina", 14, 9, 'B', 9, true);
+	Student vlad;
 
-	Student vlad(alex);
-	Student nikita(alex);
+	vlad = alex;
 
-	//Student* ptr = new Student(123, "Alex", 15, 9, 'A', 10, true);
+	cout << "Before: ";
+	cout << alex.toString() << endl;
+	cout << vlad.toString() << endl;
 
+	alex.id = 1;
+
+	cout << "After: ";
 	cout << alex.toString() << endl;
 	cout << vlad.toString() << endl;
 

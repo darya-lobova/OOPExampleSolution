@@ -48,6 +48,7 @@ public:
 
 	//copy-constructor / constructor with arguments
 	Student(const Student& student) {
+		cout << "Student copy-constructor" << endl;
 		id = student.id;
 		name = student.name;
 		age = student.age;
