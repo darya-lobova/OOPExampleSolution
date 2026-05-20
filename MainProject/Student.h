@@ -14,7 +14,7 @@ public:
 
 	//default constructor / constructor without arguments
 	Student() {
-		//cout << "Default costructor" << endl;
+		cout << "Default costructor" << endl;
 		id = 0;
 		name = "";
 		age = 0;
@@ -37,7 +37,8 @@ public:
 	}
 
 	//constructor with arguments
-	Student(string nm, int ag) {
+	Student(int ag, string nm) {
+		cout << "Student constructor with arguments" << endl;
 		id = 0;
 		name = nm;
 		age = ag;
@@ -55,12 +56,17 @@ public:
 		age = student.age;
 		class_number = student.class_number;
 		class_letter = student.class_letter;
-
 		marks = new double[3] {student.marks[0], 
 			student.marks[1], 
 			student.marks[2]};
-
 		alive = student.alive;
+	}
+
+	~Student() {
+		cout << "Student destructor" << endl;
+		if (marks != NULL) {
+			delete[] marks;
+		}
 	}
 
 	string toString() {
