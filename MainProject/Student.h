@@ -3,14 +3,18 @@
 using namespace std;
 
 class Student {
-public:
+private:
 	int id;
 	string name;
 	int age;
-	double* marks;
-	int class_number;
-	char class_letter;
+	int* marks;
+	int classNumber;
+	char classLetter;
 	bool alive;
+
+
+public:
+
 
 	//default constructor / constructor without arguments
 	Student() {
@@ -18,9 +22,9 @@ public:
 		id = 0;
 		name = "";
 		age = 0;
-		class_number = 0;
-		class_letter = '\0';
-		marks = new double [3] {10, 9, 7};
+		classNumber = 0;
+		classLetter = '\0';
+		marks = new int [3] {10, 9, 7};
 		alive = false;
 	}
 
@@ -30,9 +34,9 @@ public:
 		id = i;
 		name = nm;
 		age = ag;
-		class_number = number;
-		class_letter = letter;
-		marks = new double [3] {10, 9, 7};
+		classNumber = number;
+		classLetter = letter;
+		marks = new int [3] {10, 9, 7};
 		alive = a;
 	}
 
@@ -42,9 +46,9 @@ public:
 		id = 0;
 		name = nm;
 		age = ag;
-		class_number = 0;
-		class_letter = '\0';
-		marks = new double [3] {10, 9, 7};
+		classNumber = 0;
+		classLetter = '\0';
+		marks = new int [3] {10, 9, 7};
 		alive = true;
 	}
 
@@ -54,10 +58,10 @@ public:
 		id = student.id;
 		name = student.name;
 		age = student.age;
-		class_number = student.class_number;
-		class_letter = student.class_letter;
-		marks = new double[3] {student.marks[0], 
-			student.marks[1], 
+		classNumber = student.classNumber;
+		classLetter = student.classLetter;
+		marks = new int[3] {student.marks[0],
+			student.marks[1],
 			student.marks[2]};
 		alive = student.alive;
 	}
@@ -69,13 +73,86 @@ public:
 		}
 	}
 
+	int getID() {
+		return id;
+	}
+
+	void setID(int i) {
+		id = i;
+	}
+
+	string getName() {
+		return name;
+	}
+
+	void setName(string nm) {
+		name = nm;
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	void setAge(int a) {
+		if (a > 10) {
+			age = a;
+		}
+	}
+
+	int getClassNumber() {
+		return classNumber;
+	}
+
+	void setClassNumber(int number) {
+		if (number >= 1 && number <= 11) {
+			classNumber = number;
+		}
+	}
+
+	char gerClassLetter() {
+		return classLetter;
+	}
+
+	char setClassLetter(char letter) {
+		letter = toupper(letter);
+
+		if (letter >= 'A' && letter <= 'Z') {
+			classLetter = letter;
+		}
+	}
+
+	bool isAlive() {
+		return alive;
+	}
+
+	void setAlive(bool a) {
+		alive = a;
+	}
+
+	int* getMarks() {
+		return marks;
+	}
+
+	void setMarks(int* ms, int c) {
+		if (marks != NULL) {
+			delete[] marks;
+			marks = new int[c];
+
+			for (int i = 0; i < c; i++)
+			{
+				marks[i] = ms[i];
+			}
+		}
+
+	}
+
 	string toString() {
 		string s = "Student: ";
 		s += "id = " + to_string(id);
 		s += ", name = " + name;
 		s += ", age = " + to_string(age);
-		s += ", class = " + to_string(class_number) + to_string(class_letter);
-		s += ", marks = {" + to_string(marks[0]) + ", " + to_string(marks[1]) 
+		s += ", class = " + to_string(classNumber) + to_string(classLetter);
+		s += ", marks = {" + to_string(marks[0]) + ", " + to_string(marks[1])
 			+ ", " + to_string(marks[2]) + "}";
 		s += ", alive = ";
 		s += (alive ? "yes" : "no");
