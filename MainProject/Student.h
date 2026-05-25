@@ -21,7 +21,7 @@ public:
 	//canonical constructor / constructor with arguments
 	Student(int i, string nm, int ag, int number, char letter, bool a);
 	//constructor with arguments
-	Student(int ag, string nm);
+	Student(string nm, int ag);
 	//copy-constructor / constructor with arguments
 	Student(const Student& student);
 	~Student();
@@ -33,8 +33,8 @@ public:
 	void setAge(int a);
 	int getClassNumber();
 	void setClassNumber(int number);
-	char gerClassLetter();
-	char setClassLetter(char letter);
+	char getClassLetter();
+	void setClassLetter(char letter);
 	bool isAlive();
 	void setAlive(bool a);
 	int* getMarks();

@@ -11,6 +11,7 @@ Student::Student() {
 	classNumber = 0;
 	classLetter = '\0';
 	marks = new int [3] {10, 9, 7};
+	count = 3;
 	alive = false;
 }
 
@@ -23,11 +24,12 @@ Student::Student(int i, string nm, int ag, int number, char letter, bool a) {
 	classNumber = number;
 	classLetter = letter;
 	marks = new int [3] {10, 9, 7};
+	count = 3;
 	alive = a;
 }
 
 //constructor with arguments
-Student::Student(int ag, string nm) {
+Student::Student(string nm, int ag) {
 	cout << "Student constructor with arguments" << endl;
 	id = 0;
 	name = nm;
@@ -35,6 +37,7 @@ Student::Student(int ag, string nm) {
 	classNumber = 0;
 	classLetter = '\0';
 	marks = new int [3] {10, 9, 7};
+	count = 3;
 	alive = true;
 }
 
@@ -49,6 +52,7 @@ Student::Student(const Student& student) {
 	marks = new int[3] {student.marks[0],
 		student.marks[1],
 		student.marks[2]};
+	count = 3;
 	alive = student.alive;
 }
 
@@ -91,11 +95,11 @@ void Student::setClassNumber(int number) {
 	}
 }
 
-char Student::gerClassLetter() {
+char Student::getClassLetter() {
 	return classLetter;
 }
 
-char Student::setClassLetter(char letter) {
+void Student::setClassLetter(char letter) {
 	letter = toupper(letter);
 
 	if (letter >= 'A' && letter <= 'Z') {
@@ -116,7 +120,7 @@ int* Student::getMarks() {
 }
 
 void Student::setMarks(int* ms, int c) {
-	if (marks != NULL) {
+	if (marks != NULL && count > 0) {
 		delete[] marks;
 		marks = new int[c];
 
