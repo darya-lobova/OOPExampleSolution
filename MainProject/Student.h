@@ -19,26 +19,28 @@ public:
 	//default constructor / constructor without arguments
 	Student();
 	//canonical constructor / constructor with arguments
-	Student(int i, string nm, int ag, int number, char letter, bool a);
+	Student(int id, string name, int age, int number, char letter, bool alive);
 	//constructor with arguments
-	Student(string nm, int ag);
+	Student(string name, int age);
+	//constructor with arguments
+	Student(int age, string name);
 	//copy-constructor / constructor with arguments
 	Student(const Student& student);
 	~Student();
 
 	int getID();
 	string getName();
-	void setName(string nm);
+	void setName(string name);
 	int getAge();
-	void setAge(int a);
+	void setAge(int age);
 	int getClassNumber();
 	void setClassNumber(int number);
 	char getClassLetter();
 	void setClassLetter(char letter);
 	bool isAlive();
-	void setAlive(bool a);
+	void setAlive(bool alive);
 	int* getMarks();
-	void setMarks(int* ms, int c);
+	void setMarks(int* marks, int count);
 	int getCount();
 
 	string toString();

@@ -2,7 +2,6 @@
 class Manager
 {
 public:
-	double calculateAverageMark(Student** group, int size);
-
+	double calculateAverageMark(Group* group);
 };
 

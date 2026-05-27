@@ -3,16 +3,10 @@
 
 
 //default constructor / constructor without arguments
-Student::Student() {
-	cout << "Default costructor" << endl;
-	id = 0;
-	name = "";
-	age = 0;
-	classNumber = 0;
-	classLetter = '\0';
-	marks = new int [3] {10, 9, 7};
-	count = 3;
-	alive = false;
+Student::Student() : Student(0, "no name", 10, 0, '\0', true) {
+	cout << "Student default costructor" << endl;
+	marks = NULL;
+	count =0;
 }
 
 //canonical constructor / constructor with arguments
@@ -29,31 +23,32 @@ Student::Student(int id, string name, int age, int number, char letter, bool ali
 }
 
 //constructor with arguments
-Student::Student(string name, int age) {
+Student::Student(string name, int age) : Student() {
 	cout << "Student constructor with arguments" << endl;
-	id = 0;
 	this->name = name;
 	this->age = age;
-	classNumber = 0;
-	classLetter = '\0';
-	marks = new int [3] {10, 9, 7};
-	count = 3;
-	alive = true;
 }
 
+//constructor with arguments
+Student::Student(int age, string name) : Student(name, age) {
+	cout << "Student constructor with arguments" << endl;
+	
+}
+
+
 //copy-constructor / constructor with arguments
-Student::Student(const Student& student) {
+Student::Student(const Student& student) : Student(student.id, student.name,
+	student.age, student.classNumber, student.classLetter, student.alive) {
 	cout << "Student copy-constructor" << endl;
-	id = student.id;
-	name = student.name;
-	age = student.age;
-	classNumber = student.classNumber;
-	classLetter = student.classLetter;
-	marks = new int[3] {student.marks[0],
-		student.marks[1],
-		student.marks[2]};
-	count = 3;
-	alive = student.alive;
+
+	if (student.marks != NULL && student.count > 0) {
+		count = student.count;
+		marks = new int [count];
+		for (int i = 0; i < count; i++)
+		{
+			marks[i] = student.marks[i];
+		}
+	}
 }
 
 Student::~Student() {
