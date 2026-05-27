@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "Group.h"
 class Manager
 {
 public:

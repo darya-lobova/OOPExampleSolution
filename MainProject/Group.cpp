@@ -82,6 +82,7 @@ void Group::removeStudent(int index) {
 				j++;
 			}
 		}
+		delete list[index];
 		delete[]list;
 		list = temp;
 		size--;
